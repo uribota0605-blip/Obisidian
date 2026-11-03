@@ -1,0 +1,16 @@
+name: Sync Notion to Obsidian
+on:
+schedule:
+- cron: '0 0 *** ' #@A*%
+jobs:
+sync:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v4
+- name: Sync Notion pages
+env:
+NOTION_API_KEY: ${{ secrets. NOTION_API_KEY }}
+run: |
+# Notion API で更新されたベージを取得
+# マークダウン形式に変換
+# reading-only/notion/
